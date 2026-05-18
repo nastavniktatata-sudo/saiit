@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Глеб Максюта — Head of Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #a00d24;
+    --black: #0F0F0F;
+    --gray-900: #1a1a1a;
+    --gray-700: #3d3d3d;
+    --gray-500: #6b6b6b;
+    --gray-300: #c2c2c2;
+    --gray-100: #f4f4f4;
+    --gray-50: #fafafa;
+    --white: #ffffff;
+    --accent-line: #e8e8e8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-line);
+    padding: 0 60px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--red); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 68px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 60px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 28px;
+    background: rgba(200,16,46,0.07);
+    padding: 6px 14px;
+    border-radius: 3px;
+    width: fit-content;
+  }
+
+  .hero-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(36px, 4.5vw, 62px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    color: var(--black);
+    margin-bottom: 28px;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: var(--gray-500);
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 48px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 48px;
+    border: 1px solid var(--accent-line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .stat-item {
+    padding: 20px 20px;
+    border-right: 1px solid var(--accent-line);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-num span { color: var(--red); }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--gray-500);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    padding: 15px 32px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--black);
+    padding: 14px 28px;
+    border: 1.5px solid var(--accent-line);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-secondary:hover { border-color: var(--gray-300); transform: translateY(-1px); }
+
+  .hero-right {
+    position: relative;
+    background: var(--gray-100);
+    overflow: hidden;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(8%);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 40px;
+    left: -20px;
+    background: var(--white);
+    padding: 16px 22px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .badge-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .badge-icon svg { width: 18px; height: 18px; fill: white; }
+
+  .badge-text strong {
+    display: block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .badge-text span {
+    font-size: 12px;
+    color: var(--gray-500);
+  }
+
+  /* ── SECTION ── */
+  section { padding: 100px 60px; }
+
+  .section-label {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--gray-500);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  .section-header { margin-bottom: 60px; }
+
+  /* ── EXPERTISE CARDS ── */
+  #expertise { background: var(--gray-50); }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--accent-line);
+    border: 1px solid var(--accent-line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .expertise-card {
+    background: var(--white);
+    padding: 44px 44px 40px;
+    transition: background 0.2s;
+  }
+
+  .expertise-card:hover { background: var(--gray-50); }
+
+  .exp-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--red);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .exp-icon svg { width: 22px; height: 22px; fill: white; }
+
+  .exp-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 3px;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    letter-spacing: 0.2px;
+  }
+
+  .tag.red { background: rgba(200,16,46,0.08); color: var(--red); }
+
+  /* ── RESULTS ── */
+  #results {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  #results .section-label { color: #e05070; }
+  #results .section-label::before { background: #e05070; }
+  #results .section-title { color: var(--white); }
+  #results .section-subtitle { color: rgba(255,255,255,0.5); }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 60px;
+  }
+
+  .result-card {
+    padding: 40px 32px;
+    background: var(--black);
+  }
+
+  .result-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+
+  .result-num span { color: var(--red); }
+
+  .result-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .case-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--red);
+  }
+
+  .case-period {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .case-company {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+  }
+
+  .case-result {
+    font-size: 26px;
+    font-weight: 800;
+    font-family: 'Unbounded', sans-serif;
+    color: var(--red);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .case-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--white); }
+
+  .exp-timeline { max-width: 860px; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--accent-line);
+    position: relative;
+  }
+
+  .timeline-item:first-child { padding-top: 0; }
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-meta { padding-top: 4px; }
+
+  .t-period {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .t-company {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+  }
+
+  .t-geo {
+    font-size: 11px;
+    color: var(--gray-500);
+  }
+
+  .t-role {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+
+  .t-highlight {
+    background: var(--gray-50);
+    border-left: 3px solid var(--red);
+    padding: 14px 18px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+
+  .t-highlight strong { color: var(--black); font-weight: 600; }
+
+  .t-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .t-points li {
+    font-size: 13.5px;
+    color: var(--gray-700);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .t-points li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--gray-50); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--accent-line);
+    border-radius: 6px;
+    padding: 28px 28px;
+  }
+
+  .skill-group-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .skill-pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 13px;
+    border-radius: 3px;
+    background: var(--gray-100);
+    color: var(--gray-700);
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--white); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .edu-card {
+    border: 1px solid var(--accent-line);
+    border-radius: 6px;
+    padding: 28px 28px;
+  }
+
+  .edu-year {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .edu-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .edu-org {
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--gray-50); }
+
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info { }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--accent-line);
+    text-decoration: none;
+    color: var(--black);
+    transition: color 0.2s;
+  }
+
+  .contact-item:hover { color: var(--red); }
+  .contact-item:first-child { padding-top: 0; }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--red);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 18px; height: 18px; fill: white; }
+
+  .contact-item-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-500);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .contact-item-value {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* ── FORM ── */
+  .contact-form {
+    background: var(--white);
+    border: 1px solid var(--accent-line);
+    border-radius: 8px;
+    padding: 40px 36px;
+  }
+
+  .form-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .form-subtitle {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--accent-line);
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: var(--black);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--red);
+  }
+
+  .form-group textarea { height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-submit:hover { background: var(--red-dark); }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .form-msg {
+    margin-top: 12px;
+    font-size: 13px;
+    text-align: center;
+    display: none;
+  }
+
+  .form-msg.success { color: #16a34a; display: block; }
+  .form-msg.error { color: var(--red); display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    color: rgba(255,255,255,0.4);
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  footer a:hover { color: var(--red); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { height: 420px; }
+    nav { padding: 0 28px; }
+    nav .nav-links { gap: 20px; display: none; }
+    section { padding: 70px 28px; }
+    footer { padding: 20px 28px; }
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+    .cases-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+    .timeline-item { grid-template-columns: 1fr; gap: 16px; }
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .hero-left { padding: 48px 28px; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .cases-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--accent-line); }
+    .stat-item:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Глеб<span>.</span>Максюта</a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Услуги</a></li>
+    <li><a href="#results">Результаты</a></li>
+    <li><a href="#experience">Опыт</a></li>
+    <li><a href="#skills">Навыки</a></li>
+    <li><a href="#contact" class="nav-cta">Связаться</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <span class="hero-tag">6+ лет в маркетинге</span>
+    <h1 class="hero-title">
+      Head of<br>
+      <em>Marketing</em><br>
+      & Performance
+    </h1>
+    <p class="hero-subtitle">
+      Строю системный маркетинг: от аналитики и воронок до масштабирования бюджета. Управлял бюджетами до $400K/мес и командами до 22 человек.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num"><span>×4.7</span></div>
+        <div class="stat-label">рост лидогенерации</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$400K</div>
+        <div class="stat-label">бюджет в месяц</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span>340%</span></div>
+        <div class="stat-label">максимальный ROMI</div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        <svg viewBox="0 0 20 20" style="width:16px;height:16px;fill:white"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        Написать мне
+      </a>
+      <a href="https://t.me/MaksutaGleb" target="_blank" class="btn-secondary">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--black)"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.026 9.54c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.462c.537-.194 1.006.131.889.682z"/></svg>
+        Telegram
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img class="hero-photo" src="img/photo_2024-04-26_23-58-06.jpg" alt="Глеб Максюта">
+    <div class="hero-badge">
+      <div class="badge-icon">
+        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      </div>
+      <div class="badge-text">
+        <strong>6+ лет опыта</strong>
+        <span>в EdTech, e-commerce, Nutra</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-header">
+    <div class="section-label">Направления</div>
+    <h2 class="section-title">Чем я могу помочь</h2>
+    <p class="section-subtitle">Работаю на стыке стратегии, аналитики и реализации. Умею не просто привлекать трафик — строю управляемые системы роста.</p>
+  </div>
+
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h4v4H7V7zm0 6h10v2H7v-2zm0-3h10v2H7v-2zm6-3h4v4h-4V7z"/></svg>
+      </div>
+      <div class="exp-title">Performance Marketing</div>
+      <p class="exp-desc">Строю системный performance-маркетинг: закупка трафика, A/B тестирование (50+ гипотез в неделю), сквозная аналитика LTV / CAC / ROMI. Масштабирую рекламные бюджеты с сохранением эффективности.</p>
+      <div class="exp-tags">
+        <span class="tag red">Google Ads</span>
+        <span class="tag red">Facebook/Meta</span>
+        <span class="tag">A/B тесты</span>
+        <span class="tag">Unit-экономика</span>
+        <span class="tag">ROMI / LTV</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      </div>
+      <div class="exp-title">Маркетинговая стратегия</div>
+      <p class="exp-desc">Разрабатываю стратегию от исследования ЦА до запуска. Сегментация, офферы, позиционирование, воронки продаж — всё в одной системе. Работал с EdTech, e-commerce, бьюти, Nutra, B2B.</p>
+      <div class="exp-tags">
+        <span class="tag red">Стратегия</span>
+        <span class="tag">CJM</span>
+        <span class="tag">Офферы</span>
+        <span class="tag">Сегментация ЦА</span>
+        <span class="tag">Воронки</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      </div>
+      <div class="exp-title">Управление командой</div>
+      <p class="exp-desc">Опыт управления командами до 22 человек: байеры, копирайтеры, дизайнеры, видеомейкеры, аналитики, HR. Строю генеративные отделы с системным потоком гипотез и KPI-ориентированными процессами.</p>
+      <div class="exp-tags">
+        <span class="tag red">Команда до 22 чел.</span>
+        <span class="tag">KPI</span>
+        <span class="tag">Найм</span>
+        <span class="tag">Процессы</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+      </div>
+      <div class="exp-title">Аналитика и автоворонки</div>
+      <p class="exp-desc">Внедряю сквозную аналитику с привязкой к рекламным кабинетам. Строю автоворонки (вебинары, лид-магниты, трипваеры) — в одном проекте автоворонки давали 62% всех продаж.</p>
+      <div class="exp-tags">
+        <span class="tag red">GA4</span>
+        <span class="tag">CRM</span>
+        <span class="tag">Автоворонки</span>
+        <span class="tag">Email / Рассылки</span>
+        <span class="tag">Вебинары</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="section-header">
+    <div class="section-label">Результаты</div>
+    <h2 class="section-title">Цифры, а не слова</h2>
+    <p class="section-subtitle">Реальные кейсы с измеримыми результатами — масштабирование, рост выручки, снижение CPL.</p>
+  </div>
+
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-num"><span>×4.7</span></div>
+      <div class="result-label">рост объёма лидогенерации за счёт системного подхода</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">$400K</div>
+      <div class="result-label">рекламный бюджет в месяц при сохранении эффективности</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num"><span>340%</span></div>
+      <div class="result-label">максимальный ROMI в одном из проектов</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">−56%</div>
+      <div class="result-label">снижение стоимости привлечения клиента (CPL)</div>
+    </div>
+  </div>
+
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-period">2024 — 2026</div>
+      <div class="case-company">Медиабаинговый холдинг</div>
+      <div class="case-result">×4.7 лидов</div>
+      <div class="case-desc">Масштабировал бюджет с $100K до $400K/мес. Доля прибыльных связок — 87%. Экономия на бесполезных тестах за 3 года — $1.56M.</div>
+    </div>
+    <div class="case-card">
+      <div class="case-period">2022 — 2023</div>
+      <div class="case-company">Академия психологии</div>
+      <div class="case-result">5.5 млн ₽/мес</div>
+      <div class="case-desc">Выручка выросла с 1.8 до 5.5 млн ₽ без роста бюджета. Конверсия в продажу: с 40% до 64%. Автоворонки — 62% всех продаж.</div>
+    </div>
+    <div class="case-card">
+      <div class="case-period">2019 — 2023</div>
+      <div class="case-company">Инфошкола (Гипноз)</div>
+      <div class="case-result">16.3 млн ₽/мес</div>
+      <div class="case-desc">Рост с 1.4 до 16.3 млн ₽/мес. Снижение CAC на 52%. 70% выручки с холодного трафика. 8 регулярных запусков в год.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div class="section-label">Опыт работы</div>
+    <h2 class="section-title">6 лет 5 месяцев<br>практики</h2>
+  </div>
+
+  <div class="exp-timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <div class="t-period">Январь 2024 — Март 2026</div>
+        <div class="t-company">Медиабаинговый холдинг</div>
+        <div class="t-geo">США</div>
+      </div>
+      <div>
+        <div class="t-role">Директор по маркетингу / Руководитель генеративного отдела</div>
+        <div class="t-highlight">
+          <strong>Результат:</strong> масштабировал бюджет с $100K до $400K/мес при сохранении эффективности. Объём лидогенерации вырос в 4.7 раза. Доля прибыльных связок — 87%. Экономия на тестах за 3 года — $1.56M.
+        </div>
+        <ul class="t-points">
+          <li>Выстроил управляемую performance-систему: 50+ гипотез в неделю, централизованный учёт метрик</li>
+          <li>Внедрил сквозную аналитику (LTV, CAC, ROMI), пересобрал воронки и офферы</li>
+          <li>Создал генеративный отдел и наладил потоковое производство креативов (с использованием AI)</li>
+          <li>Команда 22 человека: байеры, дизайнеры, видеомейкеры, аналитики, HR</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <div class="t-period">Май 2022 — Декабрь 2023</div>
+        <div class="t-company">Академия психологии</div>
+        <div class="t-geo">Россия</div>
+      </div>
+      <div>
+        <div class="t-role">Руководитель отдела маркетинга</div>
+        <div class="t-highlight">
+          <strong>Результат:</strong> выручка выросла с 1.8 до 5.5 млн ₽/мес без увеличения бюджета. Конверсия в продажу: с 40% до 64%. Запустил 5 автоворонок, дающих 62% продаж. 4M органического охвата.
+        </div>
+        <ul class="t-points">
+          <li>Пересобрал продуктовую линейку и офферы под разные сегменты аудитории</li>
+          <li>Внедрил автоворонки (вебинары, лид-магниты, трипваеры)</li>
+          <li>Запустил SMM-отдел: Instagram, VK, LinkedIn, YouTube</li>
+          <li>Команда 14 человек: SMM, копирайтер, дизайнер, закупщики рекламы</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <div class="t-period">Ноябрь 2019 — Декабрь 2023</div>
+        <div class="t-company">Сеть салонов перманентного макияжа</div>
+        <div class="t-geo">Россия</div>
+      </div>
+      <div>
+        <div class="t-role">Маркетолог → Директор по маркетингу</div>
+        <div class="t-highlight">
+          <strong>Результат:</strong> поток клиентов вырос в 3.5 раза, загрузка мастеров — с 45% до 92%. Запустил обучение с оборотом 4.2 млн ₽/мес. Клиент остаётся в среднем 3–4 года.
+        </div>
+        <ul class="t-points">
+          <li>Перевёл бизнес от офлайн-трафика к digital-модели привлечения</li>
+          <li>Настроил лидогенерацию через digital-каналы, внедрил CRM и автоматизацию</li>
+          <li>Разработал офферы и запустил направление обучения</li>
+          <li>Команда 9 человек: копирайтер, таргетолог, дизайнер, помощник</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <div class="t-period">Февраль 2020 — Апрель 2022</div>
+        <div class="t-company">Инфошкола — Гипноз</div>
+        <div class="t-geo">Россия</div>
+      </div>
+      <div>
+        <div class="t-role">Руководитель отдела маркетинга</div>
+        <div class="t-highlight">
+          <strong>Результат:</strong> оборот вырос с 1.4 до 16.3 млн ₽/мес. Снизил CAC на 52% (с 23 548 до 12 244 ₽). 70% трафика — холодный. 8 запусков в год с ROMI 310%.
+        </div>
+        <ul class="t-points">
+          <li>Разработал стратегию запусков: прогрев → вебинар → продажа</li>
+          <li>Пересобрал офферы и смыслы продукта, сделал упаковку эксперта</li>
+          <li>Внедрил аналитику и контроль метрик по источникам трафика</li>
+          <li>Команда 19 человек: РОП, МОП, копирайтер, SMM, таргетолог, SEO</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <div class="section-label">Навыки</div>
+    <h2 class="section-title">Инструменты и компетенции</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Аналитика</div>
+      <div class="skill-list">
+        <span class="skill-pill">Google Analytics GA4</span>
+        <span class="skill-pill">Google Ads</span>
+        <span class="skill-pill">ROMI / LTV / CAC</span>
+        <span class="skill-pill">Unit-экономика</span>
+        <span class="skill-pill">A/B тесты</span>
+        <span class="skill-pill">CRM</span>
+        <span class="skill-pill">HubSpot</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Трафик и реклама</div>
+      <div class="skill-list">
+        <span class="skill-pill">Facebook / Meta Ads</span>
+        <span class="skill-pill">Google Ads</span>
+        <span class="skill-pill">Таргетированная реклама</span>
+        <span class="skill-pill">Контекстная реклама</span>
+        <span class="skill-pill">SEO</span>
+        <span class="skill-pill">Email-маркетинг</span>
+        <span class="skill-pill">TikTok Ads</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Стратегия</div>
+      <div class="skill-list">
+        <span class="skill-pill">Маркетинговая стратегия</span>
+        <span class="skill-pill">Воронки продаж</span>
+        <span class="skill-pill">Автоворонки</span>
+        <span class="skill-pill">Лидогенерация</span>
+        <span class="skill-pill">Контент-маркетинг</span>
+        <span class="skill-pill">Бренд-менеджмент</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">SMM / Контент</div>
+      <div class="skill-list">
+        <span class="skill-pill">Instagram</span>
+        <span class="skill-pill">TikTok</span>
+        <span class="skill-pill">YouTube</span>
+        <span class="skill-pill">Telegram</span>
+        <span class="skill-pill">VK</span>
+        <span class="skill-pill">Копирайтинг</span>
+        <span class="skill-pill">Сценарии VSL</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Ниши</div>
+      <div class="skill-list">
+        <span class="skill-pill">EdTech</span>
+        <span class="skill-pill">Инфобизнес</span>
+        <span class="skill-pill">E-commerce</span>
+        <span class="skill-pill">Бьюти</span>
+        <span class="skill-pill">Nutra</span>
+        <span class="skill-pill">B2C / B2B</span>
+        <span class="skill-pill">Офлайн-бизнесы</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Дополнительно</div>
+      <div class="skill-list">
+        <span class="skill-pill">Adobe Photoshop</span>
+        <span class="skill-pill">Figma</span>
+        <span class="skill-pill">AI-инструменты</span>
+        <span class="skill-pill">Управление командой</span>
+        <span class="skill-pill">Английский B1</span>
+        <span class="skill-pill">Немецкий B1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <div class="section-label">Образование и сертификаты</div>
+    <h2 class="section-title">Постоянное развитие</h2>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2023</div>
+      <div class="edu-title">Реклама и связи с общественностью / Интернет-маркетинг</div>
+      <div class="edu-org">Университет «Синергия»</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2025</div>
+      <div class="edu-title">Google Ads Certification</div>
+      <div class="edu-org">Google</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2024</div>
+      <div class="edu-title">Google Analytics Certification (GA4)</div>
+      <div class="edu-org">Google</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2024</div>
+      <div class="edu-title">HubSpot Marketing Certification</div>
+      <div class="edu-org">HubSpot</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2023</div>
+      <div class="edu-title">Conversion Optimization Program</div>
+      <div class="edu-org">CXL Institute</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2023</div>
+      <div class="edu-title">Growth Series</div>
+      <div class="edu-org">Reforge</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2025</div>
+      <div class="edu-title">Формула запуска (продюсирование, охваты)</div>
+      <div class="edu-org">Михаил Тимочко</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2022</div>
+      <div class="edu-title">Топ-менеджмент: Юнит-экономика, управление, процессы</div>
+      <div class="edu-org">Курс для руководителей компаний 300M$/год</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-label">Контакты</div>
+    <h2 class="section-title">Давайте поговорим</h2>
+    <p class="section-subtitle">Открыт к проектам, где нужна системная выручка, масштабирование и прозрачная экономика маркетинга.</p>
+  </div>
+
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <a href="https://t.me/MaksutaGleb" target="_blank" class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.026 9.54c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.462c.537-.194 1.006.131.889.682z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Telegram</div>
+          <div class="contact-item-value">@MaksutaGleb</div>
+        </div>
+      </a>
+
+      <a href="tel:+79533202262" class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Телефон</div>
+          <div class="contact-item-value">+7 (953) 320-22-62</div>
+        </div>
+      </a>
+
+      <a href="mailto:maxutagleb@gmail.com" class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-value">maxutagleb@gmail.com</div>
+        </div>
+      </a>
+
+      <a href="https://max.ru/u/f9LHodD0cOIlmPuZ4HDHVZLz8c-VWkubJuSL8MfvsPpKn6cTrGQgWH5_B08" target="_blank" class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Профиль Max</div>
+          <div class="contact-item-value">Открыть профиль →</div>
+        </div>
+      </a>
+
+      <div style="margin-top:28px;padding:20px;background:rgba(200,16,46,0.05);border:1px solid rgba(200,16,46,0.15);border-radius:6px;">
+        <p style="font-size:13px;color:var(--gray-700);line-height:1.7;">
+          <strong style="color:var(--black)">Открыт к проектам</strong> в нишах EdTech, e-commerce, инфобизнес, Nutra, B2C/B2B. <br><br>
+          <strong style="color:var(--red)">Не рассматриваю:</strong> оружие, товары двойного назначения, алкоголь, табак.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-title">Оставьте заявку</div>
+      <div class="form-subtitle">Заполните форму — я свяжусь в течение дня и обсудим вашу задачу.</div>
+
+      <div class="form-group">
+        <label>Имя</label>
+        <input type="text" id="f-name" placeholder="Ваше имя">
+      </div>
+      <div class="form-group">
+        <label>Telegram</label>
+        <input type="text" id="f-tg" placeholder="@username или ссылка">
+      </div>
+      <div class="form-group">
+        <label>Телефон</label>
+        <input type="tel" id="f-phone" placeholder="+7 (___) ___-__-__">
+      </div>
+      <div class="form-group">
+        <label>Задача / запрос</label>
+        <textarea id="f-req" placeholder="Кратко опишите задачу или проект"></textarea>
+      </div>
+
+      <button class="form-submit" id="f-btn" onclick="submitForm()">Отправить заявку</button>
+      <div class="form-msg" id="f-msg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Глеб Максюта</span>
+  <span>Калуга · Удалённо · Россия</span>
+  <a href="https://t.me/MaksutaGleb" target="_blank">Telegram</a>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+//  ВАЖНО: Вставьте ваш URL из Google Apps Script сюда
+//  Инструкция в файле google_apps_script.js
+// ─────────────────────────────────────────────────────────────
+const APPS_SCRIPT_URL = 'ВСТАВЬТЕ_URL_ЗДЕСЬ';
+// ─────────────────────────────────────────────────────────────
+
+async function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const tg = document.getElementById('f-tg').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const req = document.getElementById('f-req').value.trim();
+  const btn = document.getElementById('f-btn');
+  const msg = document.getElementById('f-msg');
+
+  if (!name || !req) {
+    msg.textContent = 'Пожалуйста, заполните имя и опишите задачу.';
+    msg.className = 'form-msg error';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Отправляем...';
+  msg.className = 'form-msg';
+
+  const timestamp = new Date().toLocaleString('ru-RU');
+  const params = new URLSearchParams({
+    timestamp, name,
+    telegram: tg || '',
+    phone: phone || '',
+    request: req
+  });
+
+  let sent = false;
+
+  if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'ВСТАВЬТЕ_URL_ЗДЕСЬ') {
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
+      sent = true;
+    } catch(e) { sent = false; }
+  }
+
+  if (sent) {
+    btn.textContent = 'Заявка отправлена ✓';
+    msg.textContent = 'Спасибо! Я свяжусь с вами в ближайшее время.';
+    msg.className = 'form-msg success';
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-tg').value = '';
+    document.getElementById('f-phone').value = '';
+    document.getElementById('f-req').value = '';
+  } else {
+    // Fallback: mailto
+    const subject = encodeURIComponent('Заявка с сайта — ' + name);
+    const body = encodeURIComponent(`Имя: ${name}\nTelegram: ${tg || '—'}\nТелефон: ${phone || '—'}\n\nЗапрос:\n${req}`);
+    window.open(`mailto:maxutagleb@gmail.com?subject=${subject}&body=${body}`);
+    btn.textContent = 'Открыт почтовый клиент ✓';
+    msg.textContent = 'Apps Script не настроен — данные отправлены через email. Настройте скрипт по инструкции в google_apps_script.js.';
+    msg.className = 'form-msg success';
+  }
+
+  setTimeout(() => { btn.disabled = false; btn.textContent = 'Отправить заявку'; }, 5000);
+}
+</script>
+
+</body>
+</html>
